@@ -269,7 +269,7 @@ light_pcapng_t *light_pcapng_open_write(const char* file_path, light_pcapng_file
 	}
 
 	light_pcapng next_block = blocks_to_write;
-	int i = 0;
+	size_t i = 0;
 	for (i = 0; i < file_info->interface_block_count; i++)
 	{
 		struct _light_interface_description_block interface_block;

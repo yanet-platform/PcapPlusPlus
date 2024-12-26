@@ -109,7 +109,7 @@ namespace pcpp
 	}
 #endif
 
-	MBufRawPacket::MBufRawPacket(const MBufRawPacket& other)
+	MBufRawPacket::MBufRawPacket(const MBufRawPacket& other) : RawPacket()
 	{
 		m_DeleteRawDataAtDestructor = false;
 		m_MBuf = nullptr;

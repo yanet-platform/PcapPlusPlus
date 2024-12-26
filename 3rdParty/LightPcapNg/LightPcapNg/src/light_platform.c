@@ -142,7 +142,7 @@ size_t light_read(light_file fd, void *buf, size_t count)
 	if (fd->decompression_context == NULL)
 	{
 		size_t bytes_read = fread(buf, 1, count, fd->file);
-		return  bytes_read != count ? -1 : bytes_read;
+		return  bytes_read != count ? (size_t)-1 : bytes_read;
 	}
 	else
 	{
@@ -155,7 +155,7 @@ size_t light_write(light_file fd, const void *buf, size_t count)
 	if (fd->compression_context == NULL)
 	{
 		size_t bytes_written = fwrite(buf, 1, count, fd->file);
-		return  bytes_written != count ? -1 : bytes_written;
+		return  bytes_written != count ? (size_t)-1 : bytes_written;
 	}
 	else
 	{

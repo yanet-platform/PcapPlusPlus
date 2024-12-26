@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <cstdlib>
 #include <initializer_list>
 #include <iterator>
 #include <ostream>
@@ -71,7 +72,11 @@ namespace pcpp
 		{
 			if (octets.size() != sizeof(m_Address))
 			{
+#if defined(__cpp_exceptions)
 				throw std::invalid_argument("Invalid initializer list size, should be 6");
+#else
+				std::abort();
+#endif
 			}
 			std::copy(octets.begin(), octets.end(), std::begin(m_Address));
 		}
@@ -100,7 +105,11 @@ namespace pcpp
 		{
 			if (octets.size() != sizeof(m_Address))
 			{
+#if defined(__cpp_exceptions)
 				throw std::invalid_argument("Invalid initializer list size, should be 6");
+#else
+				std::abort();
+#endif
 			}
 
 			std::copy(octets.begin(), octets.end(), std::begin(m_Address));

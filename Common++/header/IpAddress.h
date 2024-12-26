@@ -660,6 +660,7 @@ namespace pcpp
 		///  - IP_ADDRESS/NETMASK where IP_ADDRESS is a valid IP address representing the network prefix and NETMASK
 		///    is a valid netmask for this type of network (IPv4 or IPv6 network)
 		/// @throws std::invalid_argument The provided string does not represent a valid address and netmask format.
+#if defined(__cpp_exceptions)
 		IPNetwork(const std::string& addressAndNetmask)
 		{
 			try
@@ -671,6 +672,7 @@ namespace pcpp
 				m_IPv6Network = std::unique_ptr<IPv6Network>(new IPv6Network(addressAndNetmask));
 			}
 		}
+#endif
 
 		/// A copy c'tor for this class
 		/// @param other The instance to copy from

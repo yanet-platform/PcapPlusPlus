@@ -115,8 +115,8 @@ light_pcapng light_read_stream(light_pcapng_stream pcapng)
 	}
 
 	// PCPP patch
-	if (light_read(pcapng->file, &block_type, sizeof(block_type)) == -1 ||
-			light_read(pcapng->file, &block_total_length, sizeof(block_total_length)) == -1) {
+	if (light_read(pcapng->file, &block_type, sizeof(block_type)) == (size_t)-1 ||
+			light_read(pcapng->file, &block_total_length, sizeof(block_total_length)) == (size_t)-1) {
 		pcapng->valid = 0;
 		return NULL;
 	}
@@ -131,7 +131,7 @@ light_pcapng light_read_stream(light_pcapng_stream pcapng)
 	block_data[1] = block_total_length;
 
 	// PCPP patch
-	if (light_read(pcapng->file, &block_data[2], block_total_length - 2 * sizeof(uint32_t)) == -1) {
+	if (light_read(pcapng->file, &block_data[2], block_total_length - 2 * sizeof(uint32_t)) == (size_t)-1) {
 		free(block_data);
 		pcapng->valid = 0;
 		return NULL;
