@@ -49,7 +49,7 @@ uint16_t light_get_option_code(const light_option option)
 	return option->custom_option_code;
 }
 
-const light_option light_get_next_option(const light_option option)
+light_option light_get_next_option(const light_option option)
 {
 	return option->next_option;
 }

@@ -107,7 +107,7 @@ void light_pcapng_historgram(const light_pcapng pcapng, uint32_t (*key_master)(c
 int light_get_block_info(const light_pcapng pcapng, light_info info_flag, void *info_data, size_t *data_size);
 light_option light_get_option(const light_pcapng pcapng, uint16_t option_code);
 uint16_t light_get_option_code(const light_option option);
-const light_option light_get_next_option(const light_option option);
+light_option light_get_next_option(const light_option option);
 uint32_t *light_get_option_data(const light_option option);
 uint16_t light_get_option_length(const light_option option);
 
